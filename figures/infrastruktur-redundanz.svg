@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1140 300" width="1140" height="300" role="img" aria-label="Redundante Infrastruktur: Client über zwei Access-Switches an drei Hypervisoren mit je zwei NICs, dahinter ein redundanter Storage-Cluster und ein replizierter Standort B">
+  <defs>
+    <style>
+      .lbl   { font-family: 'Segoe UI', Arial, sans-serif; font-size: 15px; fill: #1a1a1a; }
+      .lbl-b { font-family: 'Segoe UI', Arial, sans-serif; font-size: 15px; font-weight: bold; fill: #003366; }
+      .lbl-s { font-family: 'Segoe UI', Arial, sans-serif; font-size: 13px; fill: #1a1a1a; }
+      .cap   { font-family: 'Segoe UI', Arial, sans-serif; font-size: 15px; font-weight: bold; fill: #0066cc; }
+      .site  { font-family: 'Segoe UI', Arial, sans-serif; font-size: 16px; font-weight: bold; fill: #003366; }
+      .note  { font-family: 'Segoe UI', Arial, sans-serif; font-size: 12px; fill: #666666; }
+      .box   { fill: #ffffff; stroke: #003366; stroke-width: 1.5; }
+      .box-l { fill: #e8f0f8; stroke: #cfe0f2; stroke-width: 1; }
+      .siteA { fill: #f7fbff; stroke: #cfe0f2; stroke-width: 1.2; }
+      .siteB { fill: #fbfdff; stroke: #0066cc; stroke-width: 1.2; stroke-dasharray: 6 4; }
+      .path  { stroke: #0066cc; stroke-width: 0.9; fill: none; opacity: 0.5; }
+      .san   { stroke: #003366; stroke-width: 0.9; fill: none; opacity: 0.6; }
+      .nic   { fill: #0066cc; stroke: #003366; stroke-width: 0.7; }
+      .dot   { fill: #003366; }
+    </style>
+    <marker id="arw" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#0066cc"/>
+    </marker>
+  </defs>
+
+  <!-- Client (außerhalb des Rechenzentrums) -->
+  <rect class="box" x="60" y="130" width="88" height="52" rx="5"/>
+  <rect class="box-l" x="70" y="138" width="68" height="32" rx="2"/>
+  <line x1="90" y1="182" x2="118" y2="182" stroke="#003366" stroke-width="1.5"/>
+  <text class="lbl" x="104" y="200" text-anchor="middle">Client</text>
+
+  <!-- Standort A -->
+  <rect class="siteA" x="180" y="12" width="620" height="276" rx="8"/>
+  <text class="site" x="196" y="34">Standort A (Rechenzentrum)</text>
+
+  <!-- Redundante Pfade Client -> Switches -->
+  <path class="path" d="M 148 148 L 215 122"/>
+  <path class="path" d="M 148 164 L 215 187"/>
+
+  <!-- Access-Switches (redundant) -->
+  <rect class="box" x="215" y="100" width="100" height="34" rx="4"/>
+  <text class="lbl-s" x="265" y="122" text-anchor="middle">Switch 1</text>
+  <rect class="box" x="215" y="170" width="100" height="34" rx="4"/>
+  <text class="lbl-s" x="265" y="192" text-anchor="middle">Switch 2</text>
+  <circle class="dot" cx="225" cy="110" r="2"/><circle class="dot" cx="225" cy="116" r="2"/>
+  <circle class="dot" cx="225" cy="180" r="2"/><circle class="dot" cx="225" cy="186" r="2"/>
+  <text class="cap" x="215" y="228">Access-Switches</text>
+  <text class="note" x="215" y="244">redundant (2 Switches)</text>
+
+  <!-- Redundante Pfade: Switch 1 -> NIC 1, Switch 2 -> NIC 2 -->
+  <path class="path" d="M 315 117 L 366 64"/>
+  <path class="path" d="M 315 120 L 366 134"/>
+  <path class="path" d="M 315 123 L 366 204"/>
+  <path class="path" d="M 315 187 L 366 84"/>
+  <path class="path" d="M 315 190 L 366 154"/>
+  <path class="path" d="M 315 193 L 366 224"/>
+
+  <!-- Hypervisoren (je 2 NICs) -->
+  <rect class="box" x="380" y="40" width="150" height="60" rx="6"/>
+  <rect class="nic" x="366" y="58" width="14" height="12" rx="2"/>
+  <rect class="nic" x="366" y="78" width="14" height="12" rx="2"/>
+  <text class="lbl-b" x="456" y="70" text-anchor="middle">Hypervisor 1</text>
+  <text class="note" x="456" y="88" text-anchor="middle">2× NIC (Bonding)</text>
+
+  <rect class="box" x="380" y="110" width="150" height="60" rx="6"/>
+  <rect class="nic" x="366" y="128" width="14" height="12" rx="2"/>
+  <rect class="nic" x="366" y="148" width="14" height="12" rx="2"/>
+  <text class="lbl-b" x="456" y="140" text-anchor="middle">Hypervisor 2</text>
+  <text class="note" x="456" y="158" text-anchor="middle">2× NIC (Bonding)</text>
+
+  <rect class="box" x="380" y="180" width="150" height="60" rx="6"/>
+  <rect class="nic" x="366" y="198" width="14" height="12" rx="2"/>
+  <rect class="nic" x="366" y="218" width="14" height="12" rx="2"/>
+  <text class="lbl-b" x="456" y="210" text-anchor="middle">Hypervisor 3</text>
+  <text class="note" x="456" y="228" text-anchor="middle">2× NIC (Bonding)</text>
+
+  <!-- Storage-Pfade (Multipath) -->
+  <path class="san" d="M 530 65 L 580 65"/>
+  <path class="san" d="M 530 75 L 580 75"/>
+  <path class="san" d="M 530 135 L 580 135"/>
+  <path class="san" d="M 530 145 L 580 145"/>
+  <path class="san" d="M 530 205 L 580 205"/>
+  <path class="san" d="M 530 215 L 580 215"/>
+  <text class="note" x="555" y="258" text-anchor="middle">Multipath (2 Pfade je Host)</text>
+
+  <!-- Storage-Cluster (redundant) -->
+  <rect class="box" x="580" y="40" width="210" height="200" rx="6"/>
+  <text class="lbl-b" x="685" y="62" text-anchor="middle">Storage-Cluster</text>
+  <rect class="box-l" x="595" y="78" width="180" height="48" rx="4"/>
+  <text class="lbl-s" x="685" y="107" text-anchor="middle">Array 1 (Primary)</text>
+  <rect class="box-l" x="595" y="156" width="180" height="48" rx="4"/>
+  <text class="lbl-s" x="685" y="185" text-anchor="middle">Array 2 (Mirror)</text>
+  <path d="M 670 128 L 670 154" stroke="#0066cc" stroke-width="1.6" fill="none" marker-end="url(#arw)"/>
+  <path d="M 700 154 L 700 128" stroke="#0066cc" stroke-width="1.6" fill="none" marker-end="url(#arw)"/>
+  <text class="note" x="685" y="228" text-anchor="middle">redundant: RAID, Controller, Pfade</text>
+
+  <!-- Replikation zum zweiten Standort -->
+  <path d="M 790 140 L 914 140" stroke="#0066cc" stroke-width="1.8" fill="none" marker-end="url(#arw)"/>
+  <text class="lbl-s" x="852" y="118" text-anchor="middle" fill="#0066cc">Replikation</text>
+  <text class="note" x="852" y="132" text-anchor="middle">synchron / asynchron</text>
+
+  <!-- Standort B -->
+  <rect class="siteB" x="920" y="80" width="150" height="140" rx="8"/>
+  <text class="site" x="932" y="102" font-size="15">Standort B</text>
+  <rect class="box" x="934" y="118" width="122" height="62" rx="6"/>
+  <text class="lbl-s" x="995" y="145" text-anchor="middle">Storage-</text>
+  <text class="lbl-s" x="995" y="161" text-anchor="middle">Replikat</text>
+  <text class="note" x="995" y="200" text-anchor="middle">verteilte Ressourcen</text>
+</svg>

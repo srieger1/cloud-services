@@ -1,0 +1,56 @@
+# Build-Outputs (jederzeit reproduzierbar via `devenv shell -- pdfs`).
+# Hinweis: Die PDFs liegen absichtlich im Nextcloud-Ordner (Lehrmaterial) — in einem
+# Git-Repo wären sie verzichtbar.
+**/*.pdf
+**/*.pptx
+
+# Nix/devenv
+.devenv/
+.direnv/
+node_modules/
+
+# Slidev-Präsentationsfassung: vollständig generiert (tools/to-slidev.mjs),
+# jederzeit reproduzierbar via `devenv shell -- slidev-convert|slidev-build`
+slidev/
+
+# ---------------------------------------------------------------------------
+# NICHT für ein öffentliches Repo (Copyright, Fremdmaterial, personenbezogene Daten).
+# Der Foliensatz selbst (.md + figures/*.svg), devenv.nix/tools/ und die
+# Projekt-Guidelines sind davon nicht betroffen.
+# ---------------------------------------------------------------------------
+
+# Altbestand mit Fremdmaterial (PPTX-Quellen, teils lizenzierte Grafiken/Schulungsunterlagen)
+old-pptx/
+!alt/
+!Neues-Material/
+faizan-share/
+austausch-hardegen/
+Uebung/
+
+# Personenbezogene Daten: Noten, Teilnehmerlisten, Gruppeneinteilungen, Planung mit Namen,
+# Notizen zu Studierendenpräsentationen
+Noten/
+Teilnehmerliste_*.xlsx
+CloudServ-Planung.xlsx
+praesi.txt
+praesi.md
+praes-old.txt
+doku-wiki-users.txt
+dokuwiki-user-pw.txt
+dokuwiki-zugang-mail.txt
+
+# Fremdmaterial/Drittinhalte: Moodle-Export, Lehrbuch-PDFs, Anbieter-Studien, Stellenanzeigen
+Kurs_ Cloud Services -*.html
+Distributed_Systems_4.pdf
+state-of-devops-*.pdf
+Puppet-State-of-DevOps-Report-*.pdf
+04fe3c9ae0bbfc65.pdf
+Stellenanzeigen/
+!externes-Material/
+SRE-News.md
+
+# Arbeitsdokumente (nicht für das Repo): Entscheidungsprotokoll, Migrationsbericht, Editor-Temps
+PLANNED-CHANGES.md
+!old/
+Archiv/
+*.swp

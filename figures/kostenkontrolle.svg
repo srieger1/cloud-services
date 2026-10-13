@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 200" width="1000" height="200" role="img" aria-label="Kostenkontrolle: Budgetanzeige mit Alarmgrenze und vier Ressourcen (Volume, Floating IP, Load Balancer, Snapshot), die auch nach dem Stoppen der Instanz weiterlaufen und weiter kosten">
+  <defs>
+    <style>
+      .lbl-b { font-family: 'Segoe UI', Arial, sans-serif; font-size: 15px; font-weight: bold; fill: #003366; }
+      .lbl-s { font-family: 'Segoe UI', Arial, sans-serif; font-size: 14px; fill: #1a1a1a; }
+      .lbl-w { font-family: 'Segoe UI', Arial, sans-serif; font-size: 14px; font-weight: bold; fill: #ffffff; }
+      .cap   { font-family: 'Segoe UI', Arial, sans-serif; font-size: 15px; font-weight: bold; fill: #0066cc; }
+      .note  { font-family: 'Segoe UI', Arial, sans-serif; font-size: 13px; fill: #666666; }
+      .warn  { font-family: 'Segoe UI', Arial, sans-serif; font-size: 13px; font-weight: bold; fill: #b3261e; }
+      .box   { fill: #ffffff; stroke: #003366; stroke-width: 1.2; }
+      .bar   { fill: #e8f0f8; stroke: #cfe0f2; stroke-width: 1; }
+      .fill  { fill: #0066cc; opacity: 0.85; }
+    </style>
+  </defs>
+
+  <!-- Budget -->
+  <text class="lbl-b" x="20" y="26">Budget im Learner Lab</text>
+  <rect class="bar" x="20" y="38" width="300" height="34" rx="6"/>
+  <clipPath id="c"><rect x="20" y="38" width="300" height="34" rx="6"/></clipPath>
+  <rect class="fill" x="20" y="38" width="170" height="34" clip-path="url(#c)"/>
+  <text class="lbl-w" x="105" y="60" text-anchor="middle">verbraucht</text>
+  <text class="lbl-s" x="245" y="60" text-anchor="middle">Rest</text>
+
+  <path d="M 290 30 L 290 82" stroke="#b3261e" stroke-width="1.6" stroke-dasharray="5 4" fill="none"/>
+  <text class="warn" x="290" y="100" text-anchor="middle">Budget-Alarm setzen</text>
+
+  <!-- Was weiterläuft -->
+  <text class="lbl-b" x="380" y="26">Läuft weiter, auch wenn die Instanz gestoppt ist:</text>
+
+  <rect class="box" x="380" y="40" width="145" height="54" rx="5"/>
+  <text class="lbl-s" x="452" y="62" text-anchor="middle">Volume</text>
+  <text class="warn" x="452" y="82" text-anchor="middle">kostet weiter</text>
+
+  <rect class="box" x="535" y="40" width="145" height="54" rx="5"/>
+  <text class="lbl-s" x="607" y="62" text-anchor="middle">Floating IP</text>
+  <text class="warn" x="607" y="82" text-anchor="middle">kostet weiter</text>
+
+  <rect class="box" x="690" y="40" width="145" height="54" rx="5"/>
+  <text class="lbl-s" x="762" y="62" text-anchor="middle">Load Balancer</text>
+  <text class="warn" x="762" y="82" text-anchor="middle">kostet weiter</text>
+
+  <rect class="box" x="845" y="40" width="135" height="54" rx="5"/>
+  <text class="lbl-s" x="912" y="62" text-anchor="middle">Snapshot</text>
+  <text class="warn" x="912" y="82" text-anchor="middle">kostet weiter</text>
+
+  <text class="note" x="380" y="116">Diese Ressourcen überleben „Instanz stoppen" — und auch ein „helm uninstall".</text>
+
+  <!-- Konsequenz -->
+  <path d="M 20 140 L 980 140" stroke="#cfe0f2" stroke-width="1.2" fill="none"/>
+  <text class="cap" x="20" y="168">Deshalb: Teardown am Ende jedes Labs — Konsole prüfen, nicht nur die Instanz stoppen.</text>
+</svg>

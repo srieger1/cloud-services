@@ -1,0 +1,20 @@
+/* ---- Slidev-Theme-Overrides (handgepflegt; to-slidev.mjs hängt diese Datei an style.css an) ----
+
+Das Slidev-Default-Theme stylt .slidev-layout blockquote mit font-size: 0.875rem (14px),
+Code-Hintergrund (--slidev-code-background) und 1px-Border. Damit werden die Blockquote-Kästen
+auf den Folien grau und in 14px gerendert statt in der Standardgröße 20px wie in Marp
+(das Deck-CSS setzt nur blockquote { … } und verliert gegen die Theme-Specificity 0,1,1).
+
+Marp-Parität wiederherstellen — Blockquote erbt die 20px der Folie: */
+.slidev-layout blockquote {
+  font-size: inherit;
+  line-height: inherit;
+  background: var(--color-light);
+  color: inherit;
+  border-left: 4px solid var(--color-accent);
+  border-radius: 0 4px 4px 0;
+  padding: 0.5em 1em;
+  margin: 0.5em 0;
+}
+/* Theme setzt .slidev-layout blockquote > * auf margin 0; Marp nutzt blockquote p { margin: 0.2em 0 } */
+.slidev-layout blockquote > * { margin: 0.2em 0; }
