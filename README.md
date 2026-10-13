@@ -4,6 +4,13 @@ Foliensatz und Ablaufplan der Lehrveranstaltung **Cloud Services** (Modul AI1034
 
 Die Veranstaltung ist praktisch angelegt: Studierende bauen und betreiben in Teams einen eigenen Cloud-Service. Die Folien begleiten die Labs als kurze Impulse; das eigentliche Arbeiten findet im Praktikum statt.
 
+**Abgabe der Projektausarbeitung (IaC-Code): 28.02.2027** — Details siehe `PLAN.md`.
+
+## Semesterstand
+
+- `main` ist der aktuelle Stand; der Tag **`wise2026`** markiert den Stand zu Semesterbeginn (erste Vorlesungswoche).
+- Änderungen im Semester laufen als normale Commits — die Historie ersetzt die frühere Praxis, pro Semester einen eigenen Ordner zu führen.
+
 ## Inhalt
 
 | Datei(en) | Inhalt |

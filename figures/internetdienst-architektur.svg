@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1140 270" width="1140" height="270" role="img" aria-label="Architektur eines Internetdienstes: Endgeräte erreichen über das Provider-Netz mit DNS, Router/NAT, CDN und Firewall das Rechenzentrum mit Load Balancer, Server-Anwendung (Socket, BIND/LISTEN) und nachgelagerten Systemen wie Datenbank, Storage, Identity und Monitoring">
+  <defs>
+    <style>
+      .lbl   { font-family: 'Segoe UI', Arial, sans-serif; font-size: 15px; fill: #1a1a1a; }
+      .lbl-b { font-family: 'Segoe UI', Arial, sans-serif; font-size: 15px; font-weight: bold; fill: #003366; }
+      .lbl-s { font-family: 'Segoe UI', Arial, sans-serif; font-size: 13px; fill: #1a1a1a; }
+      .zone  { font-family: 'Segoe UI', Arial, sans-serif; font-size: 15px; font-weight: bold; fill: #003366; }
+      .note  { font-family: 'Segoe UI', Arial, sans-serif; font-size: 12.5px; fill: #666666; }
+      .path  { font-family: 'Segoe UI', Arial, sans-serif; font-size: 13px; fill: #0066cc; }
+      .box   { fill: #ffffff; stroke: #003366; stroke-width: 1.5; }
+      .chip  { fill: #e8f0f8; stroke: #cfe0f2; stroke-width: 1; }
+      .zone-b{ fill: #f7fbff; stroke: #cfe0f2; stroke-width: 1.2; }
+      .flow  { stroke: #0066cc; stroke-width: 1.6; fill: none; }
+      .dep   { stroke: #003366; stroke-width: 1; fill: none; opacity: 0.65; }
+    </style>
+    <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#0066cc"/>
+    </marker>
+    <marker id="ard" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#003366"/>
+    </marker>
+  </defs>
+
+  <!-- Endgeräte / Clients -->
+  <rect class="zone-b" x="20" y="55" width="170" height="140" rx="8"/>
+  <text class="zone" x="36" y="78">Endgeräte</text>
+  <text class="note" x="36" y="95">Clients, Browser, App</text>
+  <rect class="box" x="38" y="110" width="86" height="52" rx="4"/>
+  <rect class="chip" x="46" y="118" width="70" height="34" rx="2"/>
+  <line x1="62" y1="162" x2="100" y2="162" stroke="#003366" stroke-width="1.6"/>
+  <rect class="box" x="136" y="104" width="36" height="62" rx="6"/>
+  <rect class="chip" x="142" y="112" width="24" height="38" rx="2"/>
+
+  <!-- Provider-Netz -->
+  <rect class="zone-b" x="230" y="55" width="300" height="140" rx="8"/>
+  <text class="zone" x="246" y="78">Internet / Provider-Netz</text>
+  <rect class="chip" x="246" y="92" width="128" height="30" rx="4"/>
+  <text class="lbl-s" x="310" y="112" text-anchor="middle">DNS</text>
+  <rect class="chip" x="386" y="92" width="128" height="30" rx="4"/>
+  <text class="lbl-s" x="450" y="112" text-anchor="middle">CDN / Proxy</text>
+  <rect class="chip" x="246" y="134" width="128" height="30" rx="4"/>
+  <text class="lbl-s" x="310" y="154" text-anchor="middle">Router / NAT</text>
+  <rect class="chip" x="386" y="134" width="128" height="30" rx="4"/>
+  <text class="lbl-s" x="450" y="154" text-anchor="middle">Firewall</text>
+
+  <!-- Rechenzentrum / Cloud -->
+  <rect class="zone-b" x="570" y="30" width="550" height="212" rx="8"/>
+  <text class="zone" x="586" y="54">Rechenzentrum / Cloud</text>
+
+  <rect class="box" x="586" y="86" width="120" height="62" rx="6"/>
+  <text class="lbl-s" x="646" y="111" text-anchor="middle">Load</text>
+  <text class="lbl-s" x="646" y="129" text-anchor="middle">Balancer</text>
+
+  <rect class="box" x="740" y="76" width="190" height="82" rx="6"/>
+  <text class="lbl-b" x="835" y="100" text-anchor="middle">Server-Anwendung</text>
+  <text class="note" x="835" y="120" text-anchor="middle">Socket: BIND + LISTEN</text>
+  <text class="note" x="835" y="138" text-anchor="middle">z. B. Port 443 (HTTPS)</text>
+
+  <!-- Nachgelagerte Systeme -->
+  <rect class="chip" x="740" y="190" width="88" height="30" rx="4"/>
+  <text class="lbl-s" x="784" y="210" text-anchor="middle">DB</text>
+  <rect class="chip" x="836" y="190" width="88" height="30" rx="4"/>
+  <text class="lbl-s" x="880" y="210" text-anchor="middle">Storage</text>
+  <rect class="chip" x="932" y="190" width="88" height="30" rx="4"/>
+  <text class="lbl-s" x="976" y="210" text-anchor="middle">Identity</text>
+  <rect class="chip" x="1028" y="190" width="76" height="30" rx="4"/>
+  <text class="lbl-s" x="1066" y="210" text-anchor="middle">Monitor.</text>
+
+  <!-- Pfade -->
+  <path class="flow" d="M 190 125 L 224 125" marker-end="url(#ar)"/>
+  <path class="flow" d="M 530 125 L 564 125" marker-end="url(#ar)"/>
+  <path class="flow" d="M 706 122 L 734 122" marker-end="url(#ar)"/>
+  <path class="dep" d="M 835 158 L 835 190" marker-end="url(#ard)"/>
+  <path class="dep" d="M 784 190 L 784 168 L 835 168"/>
+  <path class="dep" d="M 880 190 L 880 168 L 835 168"/>
+  <path class="dep" d="M 976 190 L 976 168 L 835 168"/>
+  <path class="dep" d="M 1066 190 L 1066 168 L 835 168"/>
+
+  <!-- Ablauf der Anfrage -->
+  <path d="M 20 244 L 1120 244" stroke="#cfe0f2" stroke-width="1.2" fill="none"/>
+  <text class="path" x="20" y="264">Anfrage: Name → IP (DNS) · Verbindung (TCP) · Anfrage/Antwort (HTTP) · Daten und Abhängigkeiten (DB, Storage, Identity, Monitoring)</text>
+</svg>

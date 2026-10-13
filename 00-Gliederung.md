@@ -148,6 +148,8 @@ Sprechstunde: Do 11:40–13:10 (Anmeldung erwünscht)
 
 **Abgabe:** **IaC-Code als Repo oder Archiv** — Infrastruktur, Deployment und Betrieb Ihres Dienstes, nachvollziehbar dokumentiert (README, Architekturdiagramm, Betriebshinweise).
 
+**Abgabefrist: 28.02.2027** (Ende der Prüfungsphase, vor der vorlesungsfreien Zeit)
+
 <div class="columns">
 <div>
 
@@ -226,11 +228,12 @@ Sie bauen in Teams einen eigenen Cloud-Service und betreiben ihn auf echter Infr
 | W4–W6 | Grundlagen fertig, Infrastruktur, Anforderungen, Lab 2–3 | Cloud-Instanz, IaC |
 | W7–W12 | Labs 4–6, Doku, Monitoring | Kubernetes, CI/CD, Observability |
 | W13 | Backup & Recovery, Referenzprojekt, Ausblick | Bonus-Track, Abgabevorbereitung |
-| W14 | Offene Fragen, Evaluation | **Rundgang 3**, Abgabe, Galerie |
+| W14 | Offene Fragen, Evaluation | **Rundgang 3**, Galerie, Abgabevorbereitung |
 
 - **Rundgänge** (je Gruppe ~10 min, jede Person erklärt ihren Teil): W7, W12, W14
 - **Status-Update** vor jedem Rundgang: was läuft, was fehlt, wo hängen wir
-- Alle Termine und Fristen: **Moodle**
+- **Abgabe der Ausarbeitung:** **28.02.2027** (Ende der Prüfungsphase, vor der vorlesungsfreien Zeit) — Abgabeort und Format über **Moodle**
+- Alle Termine und Fristen: **Moodle** (zu Beginn der Lehrveranstaltung verbindlich bekanntgegeben)
 
 > **→ umsetzen in:** Agenda und Abgabetermine in Moodle verfolgen; Status-Updates pünktlich abgeben.
 

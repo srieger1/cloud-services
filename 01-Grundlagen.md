@@ -142,29 +142,7 @@ Was ist ein Cloud- oder Internetdienst?
 - „…über das Internet Protocol (mit geeignetem Transportprotokoll) bereitgestellt" → besser, aber: was heißt „bereitgestellt"?
 - Technisch präzise: **eine Anwendung bindet sich an einen Socket und lauscht auf Anfragen** → `BIND` und `LISTEN`
 
-<div class="columns3">
-<div class="card">
-
-**Nutzer:innen**
-Endgeräte, Clients,
-Anwendungen auf Client/NAS
-
-</div>
-<div class="card">
-
-**Anbieter**
-Internet-/Cloud-Service-Provider,
-Netz und Rechenzentrum
-
-</div>
-<div class="card">
-
-**Dienst**
-Server(-Anwendung) im RZ,
-Clients ↔ Sockets ↔ Server
-
-</div>
-</div>
+![w:1000px center](figures/internetdienst-architektur.svg)
 
 🧠 Ist ein Dienst im eigenen LAN ohne Internetzugang noch ein Internetdienst?
 
