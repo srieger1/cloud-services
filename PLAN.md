@@ -6,6 +6,7 @@ Die Veranstaltung ist ein **Praktikum mit begleitendem Impuls**: Die Studierende
 ## Ausrichtung
 
 - **Deliverable ist der IaC-Code** (Repository oder Archiv) plus README mit Architekturdiagramm — **kein Betriebshandbuch**, keine Präsentationspflicht.
+- **Abgabefrist: 28.02.2027** — liegt in der Prüfungsphase, vor der vorlesungsfreien Zeit; das OpenStack-Setup wird in der Semesterpause neu aufgesetzt, danach sind die Projekte abgeschlossen. Abgabeort und Format werden zu Semesterbeginn bekannt gegeben.
 - **Bestehensgrenze:** mindestens **5 der 6 Labs** umgesetzt. Add-ons (Auto-Scaling, HA/Self-Healing, Backup/DR) sind Extra Credit.
 - Die Studierenden wählen **eine primäre Plattform** (OpenStack im NetLab oder AWS Academy) — dieselben Muster werden auf beiden gezeigt.
 - Kein Vorlesungsformat: kurzer Impuls, Übung/Diskussion, dann Projektarbeit mit Betreuung.
@@ -42,9 +43,10 @@ Block A = Impuls + Übung/Diskussion, Block B = Projektarbeit mit Betreuung.
 | W11 | 3 | Überwachung Teil 1 (Logging, Monitoring, Reporting) + Lab 6 | Prometheus/Grafana/Loki |
 | W12 | 4 | Überwachung Teil 2 (SLO, Alarme, Skalierung, HPA) | **Status-Update 2 + Rundgang 2**, Bonus-Track |
 | W13 | 5 | Backup & Recovery + Referenzprojekt/Ausblick (Lab 7) | Bonus-Track (Velero/Restore), Abgabevorbereitung |
-| W14 | 6 | Offene Fragen, Evaluation, Ausblick | **Status-Update 3 + Rundgang 3**, Abgabe, Galerie |
+| W14 | 6 | Offene Fragen, Evaluation, Ausblick | **Status-Update 3 + Rundgang 3**, Galerie, Abgabevorbereitung |
+| — | 7–8 | **Prüfungsphase** — **Abgabe der Ausarbeitung: 28.02.2027** | — |
 
-> Die KW-Angaben sind aus dem Anker „Konferenzwoche ab 26.10.2026" abgeleitet und vor Semesterbeginn mit der Stundenplanung abzugleichen. Puffer: der Backup-Block kann bei Zeitnot entfallen (Folien bleiben Selbstlernmaterial).
+> Die KW-Angaben sind aus dem Anker „Konferenzwoche ab 26.10.2026" abgeleitet. Puffer: der Backup-Block kann bei Zeitnot entfallen (Folien bleiben dann Selbstlernmaterial).
 
 ## Labs und Zuordnung zur Abgabe
 
@@ -76,5 +78,6 @@ Block A = Impuls + Übung/Diskussion, Block B = Projektarbeit mit Betreuung.
 
 ## Offene Punkte
 
-- Modulbeschreibung in der PO an die tatsächliche Fassung angleichen (Rename „Internet Services" → „Cloud Services" wurde dort nicht nachgezogen).
-- Optional: Kapitel „Ausblick" als eigenes Deck; weitere SVGs (`internetdienst-architektur.svg`); Lab-Deep-Dives ausbauen.
+- Modulbeschreibung in der PO an die tatsächliche Fassung angleichen: Die Veranstaltung heißt überall **Cloud Services**; „Internet Services" ist ein Überbleibsel aus der Zeit vor der Umbenennung.
+- **Kein eigenes „Ausblick"-Deck** — der Ausblick bleibt Teil von `16-Lab7-Referenzprojekt-Ausblick.md`; ein eigenes Deck wäre für den Nutzen zu aufwändig.
+- **Lab-Deep-Dives** wachsen über das Semester: Umfang und Tiefe ergeben sich aus der Gruppe (Erfahrung: engagierte Teams gehen teils sehr tief). Nachführen statt vorab ausbauen.

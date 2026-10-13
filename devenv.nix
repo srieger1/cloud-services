@@ -110,6 +110,25 @@
     done
   '';
 
+  # Veröffentlichte Fassung lokal erzeugen (genau wie CI/GitHub Pages):
+  # PDFs nach public/ rendern und die Übersichtsseite public/index.html schreiben.
+  scripts.pages.exec = ''
+    set -e
+    cd "$DEVENV_ROOT"
+    mkdir -p public
+    for f in [0-9][0-9]-*.md; do
+      echo "==> $f"
+      marp --allow-local-files --pdf --output "public/''${f%.md}.pdf" "$f"
+    done
+    node tools/site.mjs public
+    echo "Fertig — Vorschau z. B. mit: python3 -m http.server -d public 8080"
+  '';
+
+  # Nur die Übersichtsseite aus vorhandenen PDFs erzeugen (public/index.html)
+  scripts.site.exec = ''
+    exec node "$DEVENV_ROOT/tools/site.mjs" "$@"
+  '';
+
   # DoD-Prüfung: Folien-Dichte, Marker-Konvention, Abschlussfolien (PLANNED-CHANGES.md Abschnitt 0/8)
   scripts.slidecheck.exec = ''
     exec node "$DEVENV_ROOT/tools/slidecheck.mjs" "$@"
@@ -134,6 +153,8 @@
     echo "Cloud Services · marp $(marp --version) · node $(node --version)"
     echo "  Decks: 00-Gliederung … 06-Backup-Recovery, 10-Lab1-Docker … 16-Lab7-Referenzprojekt-Ausblick, 20-Flipped-Classroom-Auftrag"
     echo "  pdfs         — alle Decks ([0-9][0-9]-*.md) als PDF rendern"
+    echo "  pages        — veröffentlichte Fassung lokal bauen: public/*.pdf + public/index.html"
+    echo "  site         — nur die Übersichtsseite aus vorhandenen PDFs erzeugen"
     echo "  slidecheck   — Folien-Dichte/Marker gegen die DoD aus PLANNED-CHANGES.md prüfen"
     echo "  linkcheck    — alle Links der Decks prüfen"
     echo "  check        — slidecheck + linkcheck (Exit-Code != 0 bei Verstoß)"

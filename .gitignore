@@ -1,8 +1,9 @@
 # Build-Outputs (jederzeit reproduzierbar via `devenv shell -- pdfs`).
-# Hinweis: Die PDFs liegen absichtlich im Nextcloud-Ordner (Lehrmaterial) — in einem
-# Git-Repo wären sie verzichtbar.
 **/*.pdf
 **/*.pptx
+
+# Lokal erzeugte Veröffentlichungsfassung (CI baut sie für GitHub Pages)
+public/
 
 # Nix/devenv
 .devenv/

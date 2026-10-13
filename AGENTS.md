@@ -12,6 +12,7 @@ devenv shell          # Umgebung: marp-cli, chromium, node
 | Befehl | Wirkung |
 |---|---|
 | `pdfs` | alle Decks (`[0-9][0-9]-*.md`) als PDF rendern |
+| `pages` / `site` | veröffentlichte Fassung lokal bauen (`public/*.pdf` + `public/index.html`) |
 | `slidecheck` | DoD: Folien-Dichte, Marker, Links, Checkboxen, Abschlussfolien |
 | `linkcheck` | alle Links prüfen (403/405/429 = „prüfen", interne HS-Hosts = „nur im VPN") |
 | `check` | `slidecheck` + `linkcheck`, Exit ≠ 0 bei Verstoß |
@@ -42,8 +43,20 @@ devenv shell          # Umgebung: marp-cli, chromium, node
 ## Harte Regeln
 
 - **Keine Fremdbilder** (Screenshots, Logos, Karten, Memes) — nur eigene SVGs. Grund: öffentliches Repo, siehe `PLAN.md`.
-- Keine Secrets und keine personenbezogenen Daten in den Decks.
+- Keine Secrets und keine personenbezogenen Daten in den Decks (keine Noten, Teilnehmerlisten, Gruppenzuordnungen — auch nicht in Speaker-Notes).
 - Links nur auf stabile Ziele (offizielle Doku, GitHub-Repos, HS-Ressourcen); keine Versions-Deeplinks.
+
+## Veröffentlichung (GitHub Pages)
+
+Die PDFs sind **Build-Artefakte** und werden nicht committet. Bei Änderungen an Decks oder `figures/`
+baut die CI (`.github/workflows/pages.yml`) alle PDFs, erzeugt `public/index.html`
+(`tools/site.mjs`) und veröffentlicht beides über GitHub Pages:
+
+- Übersicht: https://srieger1.github.io/cloud-services/
+- einzelne Decks: `https://srieger1.github.io/cloud-services/<deck>.pdf` — stabile Links für Moodle.
+
+Die CI prüft zusätzlich die DoD (`slidecheck`, unverbindlich) — die verbindliche Prüfung bleibt
+`devenv shell -- check` vor dem Commit. Lokal dieselbe Ausgabe: `devenv shell -- pages`.
 
 ## Fallen (belegt)
 

@@ -48,6 +48,24 @@ slidev-build          # statische Slidev-Fassung nach slidev/dist/ bauen
 
 **Marp ist die Quelle**; die Slidev-Fassung wird per `slidev-convert` erzeugt und nicht versioniert.
 
+## PDFs
+
+Die PDFs werden **nicht** im Repository abgelegt, sondern bei jeder Änderung automatisch
+gebaut und über GitHub Pages veröffentlicht:
+
+- Übersicht: **https://srieger1.github.io/cloud-services/**
+- einzelne Decks: `https://srieger1.github.io/cloud-services/01-Grundlagen.pdf` (usw.)
+
+Damit lässt sich aus Moodle direkt auf die jeweils aktuelle Fassung verlinken — die Links
+bleiben stabil, auch wenn sich die Folien im Semester ändern.
+
+Lokal dasselbe Ergebnis (`public/index.html` + `public/*.pdf`):
+
+```sh
+devenv shell -- pages     # bauen wie die CI
+devenv shell -- pdfs      # nur die PDFs neben die Decks legen
+```
+
 ## Prüfen
 
 ```sh

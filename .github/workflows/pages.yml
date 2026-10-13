@@ -1,0 +1,78 @@
+name: PDFs bauen und veröffentlichen
+
+# Erzeugt aus den Marp-Markdown-Decks die PDFs und veröffentlicht sie (samt Übersichtsseite)
+# über GitHub Pages. Die PDFs selbst werden bewusst NICHT ins Repository committet —
+# sie sind jederzeit reproduzierbar (`devenv shell -- pdfs`).
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "*.md"
+      - "figures/**"
+      - "tools/**"
+      - ".github/workflows/pages.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: marp-cli installieren
+        run: npm install --global @marp-team/marp-cli
+
+      - name: Chromium-Pfad bestimmen (marp rendert PDFs damit)
+        run: |
+          CHROME=$(command -v google-chrome || command -v google-chrome-stable || command -v chromium-browser || command -v chromium)
+          echo "CHROME_PATH=$CHROME" >> "$GITHUB_ENV"
+          "$CHROME" --version
+
+      - name: DoD prüfen (Dichte, Marker, Links) — bricht den Build nicht ab
+        continue-on-error: true
+        run: |
+          node tools/slidecheck.mjs
+          node tools/linkcheck.mjs
+
+      - name: PDFs rendern
+        run: |
+          set -e
+          mkdir -p public
+          for f in [0-9][0-9]-*.md; do
+            echo "==> $f"
+            marp --pdf --allow-local-files --output "public/${f%.md}.pdf" "$f"
+          done
+          ls -lh public
+
+      - name: Übersichtsseite erzeugen
+        run: node tools/site.mjs public
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: public
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
