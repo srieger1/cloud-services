@@ -51,14 +51,21 @@ await Promise.all(
 
 const dead = [];
 const review = [];
-// Interne HS-Fulda-Hosts (VPN/NetLab) sind von außen nicht erreichbar — DNS-Fehler, Timeout,
-// 502 vom vorgelagerten Proxy usw. sind daher kein toter Link, sondern schlicht nicht prüfbar.
+// Hosts, die automatisierte Anfragen blockieren oder je nach Netz blocken (Bot-Schutz/CDN) —
+// Fehler dort sind "nicht prüfbar", nicht "tot". Ebenso: interne HS-Fulda-Hosts (nur im VPN).
+const BLOCKED = /(^|\.)bsi\.bund\.de$/i;
 const INTERNAL = /\.hs-fulda\.de$/i;
 for (const [url, status] of results) {
   const s = String(status);
   let internal = false;
-  try { internal = INTERNAL.test(new URL(url).hostname); } catch { /* URL nicht parsebar */ }
+  let blocked = false;
+  try {
+    const host = new URL(url).hostname;
+    internal = INTERNAL.test(host);
+    blocked = BLOCKED.test(host);
+  } catch { /* URL nicht parsebar */ }
   if (internal && s !== "200") { review.push([url, "intern (nur im HS-Netz/VPN)"]); continue; }
+  if (blocked && s !== "200") { review.push([url, "Host blockt automatisierte Prüfung"]); continue; }
   if (s === "ERR:AbortError") review.push([url, "Timeout"]);
   else if (s.startsWith("ERR")) dead.push([url, s]);
   else if (Number(s) >= 400 && Number(s) !== 403 && Number(s) !== 405 && Number(s) !== 429) dead.push([url, s]);
