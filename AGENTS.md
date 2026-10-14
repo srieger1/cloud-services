@@ -52,8 +52,11 @@ Fremdmaterial (z. B. ein Meme) wird **nicht** committet, kann aber lokal in den 
 
 1. Datei in `figures/copyrighted/` legen — der Ordner ist im `.gitignore` (also nie im Repo).
 2. In der Folie mit **relativem** Pfad einbinden: `![h:130px center](figures/copyrighted/datei.jpg)`
-3. Lokal rendern: Marp (`pdfs`, `slidev`-Vorschau über `slidev-watch`) zeigt das Bild. Im **Public-Build**
-   fehlt die Datei bewusst — Marp ignoriert sie mit einer Warnung (kein Fehler, kein kaputtes Bild).
+3. Lokal rendern: Marp (`pdfs`) und die Slidev-Vorschau (`slidev-watch`) zeigen das Bild. In der
+   **Public-Fassung** entfernt die CI diese Zeilen vor dem Rendern (Schritt *Nicht-öffentliche Bilder
+   ausblenden* in `.github/workflows/pages.yml`): Die Datei ist im Repo nicht vorhanden, und Marp
+   ignoriert fehlende Bilder **nicht** still — es rendert den Alt-Text als kaputtes Bild-Symbol.
+   Deshalb wird die Zeile gestrichen statt auf einen fehlenden Pfad zu zeigen.
 
 Warum das so sein muss:
 
