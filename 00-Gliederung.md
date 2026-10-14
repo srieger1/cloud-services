@@ -341,7 +341,7 @@ Typische Anforderungen in Stellenanzeigen für Cloud-/DevOps-Engineering (**Sieh
 
 ![w:820px center](figures/kostenkontrolle.svg)
 
-![h:130px center](figures/copyrighted/cloud-kosten-meme.jpg)
+![h:200px center](figures/copyrighted/cloud-kosten-meme.jpg)
 
 **→ umsetzen in:** jedes Lab endet mit einem Teardown-Schritt (siehe Lab-Decks).
 
