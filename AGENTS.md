@@ -42,9 +42,27 @@ devenv shell          # Umgebung: marp-cli, chromium, node
 
 ## Harte Regeln
 
-- **Keine Fremdbilder** (Screenshots, Logos, Karten, Memes) — nur eigene SVGs. Grund: öffentliches Repo, siehe `PLAN.md`.
+- **Keine Fremdbilder im Repo** (Screenshots, Logos, Karten, Memes) — im Repo liegen nur eigene SVGs. Fremdmaterial ausschließlich lokal über `figures/copyrighted/` (siehe unten). Grund: öffentliches Repo.
 - Keine Secrets und keine personenbezogenen Daten in den Decks (keine Noten, Teilnehmerlisten, Gruppenzuordnungen — auch nicht in Speaker-Notes).
 - Links nur auf stabile Ziele (offizielle Doku, GitHub-Repos, HS-Ressourcen); keine Versions-Deeplinks.
+
+## Bilder, die nicht ins öffentliche Repo dürfen
+
+Fremdmaterial (z. B. ein Meme) wird **nicht** committet, kann aber lokal in den Folien erscheinen:
+
+1. Datei in `figures/copyrighted/` legen — der Ordner ist im `.gitignore` (also nie im Repo).
+2. In der Folie mit **relativem** Pfad einbinden: `![h:130px center](figures/copyrighted/datei.jpg)`
+3. Lokal rendern: Marp (`pdfs`, `slidev`-Vorschau über `slidev-watch`) zeigt das Bild. Im **Public-Build**
+   fehlt die Datei bewusst — Marp ignoriert sie mit einer Warnung (kein Fehler, kein kaputtes Bild).
+
+Warum das so sein muss:
+
+- **Bildsyntax statt Link:** `![Alt](pfad)` rendert ein Bild; `[Text](pfad)` erzeugt nur einen Hyperlink.
+- **Kein `~/`**, keine absoluten Pfade und keine Leerzeichen im Pfad — Marp/Chromium expandiert die Tilde
+  nicht und bricht sonst am ersten Leerzeichen (oder URL-kodieren: `%20`).
+- Die Datei muss **innerhalb** des Projektordners liegen, sonst findet sie weder Marp noch die
+  generierte Slidev-Fassung (dort werden Bildpfade auf `/figures/…` umgeschrieben und über den
+  Symlink `slidev/figures` aufgelöst).
 
 ## Veröffentlichung (GitHub Pages)
 

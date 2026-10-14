@@ -339,7 +339,9 @@ Typische Anforderungen in Stellenanzeigen für Cloud-/DevOps-Engineering (**Sieh
 - Auch in der Sandbox gilt: Instanzen werden gestoppt, aber z. B. RDS, ELB, NAT und Elastic IPs laufen weiter.
 - Volumes und Load Balancer überleben ein `helm uninstall` bzw. `terraform destroy` oft — prüfen Sie die Konsole.
 
-![w:880px center](figures/kostenkontrolle.svg)
+![w:820px center](figures/kostenkontrolle.svg)
+
+![h:130px center](figures/copyrighted/cloud-kosten-meme.jpg)
 
 **→ umsetzen in:** jedes Lab endet mit einem Teardown-Schritt (siehe Lab-Decks).
 

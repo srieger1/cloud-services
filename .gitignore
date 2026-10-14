@@ -5,6 +5,12 @@
 # Lokal erzeugte Veröffentlichungsfassung (CI baut sie für GitHub Pages)
 public/
 
+# Bilder, die NICHT ins öffentliche Repo dürfen (Copyright), aber lokal in den Folien
+# erscheinen sollen. Der Ordner liegt im Projekt, damit auch die Slidev-Fassung den
+# relativen Pfad auflösen kann; im Public-Build fehlen die Dateien bewusst — Marp
+# ignoriert sie dann mit einer Warnung (kein Fehler, kein defektes Bild).
+figures/copyrighted/
+
 # Nix/devenv
 .devenv/
 .direnv/
