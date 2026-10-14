@@ -48,6 +48,18 @@ jobs:
           node tools/slidecheck.mjs
           node tools/linkcheck.mjs
 
+      - name: Nicht-öffentliche Bilder ausblenden (figures/copyrighted/ ist nicht im Repo)
+        run: |
+          # Zeilen, die auf lokale Fremdbilder verweisen, werden aus der öffentlichen Fassung
+          # entfernt — sonst zeigt Marp den Alt-Text als kaputtes Bild-Symbol an.
+          for f in [0-9][0-9]-*.md; do
+            sed -i '/figures\/copyrighted\//d' "$f"
+          done
+          if grep -n "figures/copyrighted" [0-9][0-9]-*.md; then
+            echo "::error::Verweis auf nicht-öffentliches Bild steht noch im Deck"; exit 1
+          fi
+          echo "keine Verweise mehr in den Decks (erwartet)"
+
       - name: PDFs rendern
         run: |
           set -e
