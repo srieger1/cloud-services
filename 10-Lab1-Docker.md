@@ -128,7 +128,7 @@ Die eigentliche Arbeit findet in Block B statt; die Aufgaben selbst stehen im RE
 ## Kernkonzepte
 
 - **Image ≠ Container ≠ Runtime:** Das Image ist der unveränderliche Bauplan, der Container seine laufende Instanz – ausgeführt von der Runtime (`containerd`/`runc`).
-- **Registry:** verteilt Images unter Name und Tag (`nginx:1.27`) – Docker Hub, GHCR oder eine GitLab-Registry.
+- **Registry:** verteilt Images unter Name und Tag (`nginx:1.27`) – Docker Hub, GHCR oder eine GitLab-Registry (oder lokal bei uns [harbor](https://harbor.cs.hs-fulda.de)).
 - **Dockerfile:** beschreibt den Build in Layern; jeder Layer wird gecacht und ist nur so reproduzierbar wie seine Basis.
 - **Multi-Stage-Build:** im ersten Stage bauen, im zweiten nur das Ergebnis übernehmen – kleineres Image, keine Build-Werkzeuge im Auslieferungsstand.
 - **Ports, Volumes, Mounts:** `-p` veröffentlicht Ports, `-v`/`--mount` verbindet Host-Dateien und -Verzeichnisse mit dem Container.
@@ -148,7 +148,7 @@ Warum „lokal Orchestrierung, aber kein Cluster": compose startet Container auf
 - **Container:** laufende Instanz eines Images – ein isolierter Prozess auf demselben Kernel.
 - **Dockerfile:** Rezept für den Build; `docker build -t name:tag .` erzeugt das Image.
 - **Volume / Bind-Mount:** Speicher, der den Container überlebt bzw. Host-Dateien hineinreicht.
-- **Registry:** Ablage und Verteiler für Images (Docker Hub, GHCR, GitLab).
+- **Registry:** Ablage und Verteiler für Images (Docker Hub, GHCR, GitLab, [harbor](https://harbor.cs.hs-fulda.de)).
 
 </div>
 
@@ -184,7 +184,7 @@ Hinweis: `docker compose down -v` entfernt auch die Volumes – das ist Absicht 
 - **README:** Start-/Stop-Kommandos und Zugriff (ohne Secrets) dokumentiert.
 - **Aufgeräumt nach der Vorführung:** Container, Netze und Volumes entfernt (`docker compose down -v`).
 
-> Grundlage: `Cloud & DevOps Engineering – Semester Project Guidelines` (Deliverable Dockerfile, compose, Registry-Image).
+> Grundlage: `Cloud & DevOps Engineering – Semester Project Guidelines` aus den früheren Semestern (Deliverable Dockerfile, compose, Registry-Image).
 
 ---
 
