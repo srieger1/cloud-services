@@ -146,7 +146,7 @@ Aufgabe 1 ist Wiederholung aus Lab 2 — kurz halten, Fokus liegt auf Aufgabe 2.
 
 Wir bauen die Lab-2-Instanz mit Terraform nach und verfolgen, was dabei entsteht.
 
-1. `terraform init && terraform plan` — Provider laden, Plan lesen
+1. `terraform init && terraform plan` — Provider & Dependencies laden, Plan lesen
 2. `terraform apply` — Instanz anlegen, Ausgabe der Floating IP
 3. Im OpenStack-Dashboard die Ressourcen zeigen, `terraform state list`, dann `terraform destroy`
 
@@ -166,7 +166,7 @@ Nach dem `destroy` bewusst auf das schauen, was übrig bleibt (Volume, Floating 
 - **Variablen und Outputs** werden sinnvoll genutzt
 - **Module** für wiederkehrende Bausteine (empfohlen bei komplexeren Setups)
 - **`terraform.tfvars.example`** liegt im Repo — echte Secrets nicht
-- **State-Management** über ein Remote-Backend
+- **State-Management** über ein Remote-Backend (oder mindestens shared deployment host)
 - **README mit Architekturdiagramm** — eine fremde Person kann es nachbauen
 
 🧠 Könnte eine fremde Person Ihr Deployment in 30 Minuten aus dem Repo nachbauen?
@@ -199,7 +199,7 @@ Story/Beispiel trägt der Dozent nach (Kategorie: „mal eben schnell … sicher
 ## Lessons Learned
 
 - **`destroy` hängt:** Volumes und Load-Balancer bleiben zurück und blockieren das Löschen — danach im Dashboard prüfen, was übrig ist.
-- **Secrets im Git:** Zugangsdaten in `.tf` oder `tfvars` landen im Repository — Werte über Variablen und externe Quellen zuführen.
+- **Secrets im Git:** Zugangsdaten in `.tf` oder `tfvars` landen im Repository — Werte über Variablen und externe Quellen zuführen (z. B. Vault oder Secret Manager der CI/CD-Pipeline).
 - **Ohne Remote-State kein Team:** parallele Läufe überschreiben sich, es gibt kein Locking — State gehört in ein Backend.
 - **`apply` ohne `plan` lesen:** die häufigste Ursache für unerwartete Änderungen an laufender Infrastruktur.
 

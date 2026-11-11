@@ -143,7 +143,7 @@ Nach diesem Kapitel sollten Sie wissen…
 
 - **Controller** (3×, HA): APIs, Scheduler, Datenbank, Message Queue
 - **Compute & Storage**: Hypervisor (KVM), Block (Cinder), Objekt (Swift), verteilt (Ceph)
-- **Netz & Deployment**: virtuelle Router, Security Groups, Floating IPs; Deployment automatisiert (Ansible)
+- **Netz & Deployment**: virtuelle Router, Security Groups, Floating IPs; Deployment automatisiert (Ansible, Juju)
 
 </div>
 <div>
@@ -228,7 +228,7 @@ für Backups, Logs, statische Inhalte
 
 - **Lokal/Vernetzt:** DAS (direkt am Server) · SAN (Block über Netz) · NAS (File über Netz) — in der Cloud meist abstrahiert
 - **RAID** schützt gegen Plattenausfall, **ist aber kein Backup** — dafür sorgt Kapitel 6
-- **Wichtig für Kubernetes:** die **StorageClass** bestimmt, ob ein Volume beim Löschen **erhalten** (`retain`) oder **gelöscht** (`delete`) wird
+- **Wichtig für Kubernetes (nächste Woche):** die **StorageClass** bestimmt, ob ein Volume beim Löschen **erhalten** (`retain`) oder **gelöscht** (`delete`) wird
 
 🧠 Was passiert mit einem Volume, wenn Sie ein Helm-Chart deinstallieren — und warum ist das wichtig?
 
@@ -238,7 +238,7 @@ für Backups, Logs, statische Inhalte
 
 ## Netz: das Cloud-Netzmodell
 
-In der Cloud bekommen Sie **kein Kabel**, sondern Bausteine — mit den jeweiligen AWS-Entsprechungen:
+In der Cloud bekommen Sie **kein Kabel**, sondern Bausteine — dieselben Bausteine bei jedem Provider, hier mit der AWS-Entsprechung:
 
 ![w:940px center](figures/cloud-netzmodell.svg)
 
@@ -263,7 +263,7 @@ In der Cloud bekommen Sie **kein Kabel**, sondern Bausteine — mit den jeweilig
 | **Load Balancer** | Lab 4 | über den Service/Ingress bereitstellen |
 | **Object Storage** | Add-on 8 | Backup-Ziel wählen (z. B. S3-kompatibel) |
 
-💡 Live-Demo: Security Group schließen → `curl` scheitert → wieder öffnen · Kommandos: [OpenStack CLI](https://docs.openstack.org/python-openstackclient/latest/cli/command-list.html) · [kubectl](https://kubernetes.io/docs/reference/kubectl/quick-reference/)
+💡 Live-Demo: Security Group schließen → `curl` scheitert → wieder öffnen · Kommandos: [OpenStack CLI](https://docs.openstack.org/python-openstackclient/latest/cli/command-list.html) · nächste Woche eine Ebene höher: [kubectl](https://kubernetes.io/docs/reference/kubectl/quick-reference/)
 
 <!-- Fallback, falls die Umgebung nicht erreichbar ist: Screenshots der Horizon-Konsole (Netzwerke, Security Groups) und der Ausgabe von `kubectl get sc,pvc` zeigen. -->
 
