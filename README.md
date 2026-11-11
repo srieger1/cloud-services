@@ -75,6 +75,23 @@ devenv shell -- slidevcheck  # Überlauf in der gerenderten Slidev-Fassung (0 er
 
 Die Regeln dahinter stehen in `tools/slidecheck.mjs` bzw. `tools/linkcheck.mjs` und sind in `AGENTS.md` beschrieben.
 
+## Änderungen an Folien
+
+z.B. für 02-Infrastruktur.md
+
+```sh
+nvim 02-Infrastruktur.md
+
+devenv shell -- check                    # muss Exit 0 geben
+devenv shell -- pdfs                     # PDFs rendern (Prüfung, dass alles rendert)
+devenv shell -- slidev-convert && devenv shell -- slidev-build && devenv shell -- slidevcheck
+
+git status && git diff                   # durchsehen, was drin ist
+git add 02-Infrastruktur.md              # explizit, KEIN `git add -A`
+git commit -m "was und warum"
+git push                                 # -> origin/main
+ ```
+
 ## Lizenz
 
 - **Folien und Abbildungen** (`*.md`, `figures/`, `PLAN.md`, `AGENTS.md`): [Creative Commons Namensnennung 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/) — siehe `LICENSE`.
