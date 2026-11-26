@@ -114,8 +114,10 @@ for (const file of files) {
     }
 
     // Cloud-Services-Regeln (PLANNED-CHANGES §3.1/§3.3/§3.7):
-    // genau eine 🧠-Frage pro Folie, max. 3 Links (Ausnahme Vertiefungsfolien),
+    // höchstens eine 🧠-Frage pro Folie, max. 3 Links (Ausnahme Vertiefungsfolien),
     // keine "- [ ]"-Checkboxen (Marp rendert sie wörtlich), Umsetzungs-Marker auf Theorie-Folien.
+    // Geprüft wird nur die Obergrenze: Fragen dürfen entfallen, wenn sie sich im Unterricht
+    // nicht diskutieren lassen (Dozenten-Entscheidung, WiSe 2026/27).
     const brains = (visible.match(/🧠/g) || []).length;
     const linkCount = (visible.match(/\]\(https?:/g) || []).length;
     const isBackground = /Hintergrund|weiterführende Links|Vorlagen, Begriffe/.test(title);

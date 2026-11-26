@@ -312,8 +312,6 @@ Infrastruktur und Virtualisierung
 
 > Redundanz ist eine **Kostenfrage** — und Redundanz, die nie getestet wurde, existiert nicht.
 
-🧠 Wo in Ihrem Projekt gibt es aktuell noch einen Single Point of Failure?
-
 ---
 
 <!-- _class: section-break -->
@@ -353,8 +351,6 @@ Sourcing und Ihr Projekt
 5. Überwachen, dokumentieren, absichern (Monitoring, Backup/Restore)
 
 > Referenz für Ihren Weg: [cloud-services-examples](https://github.com/srieger1/cloud-services-examples) — von Docker bis Monitoring.
-
-🧠 Welchen Dienst wählen Sie — und was davon ist für ein 30-Personen-Unternehmen realistisch?
 
 ---
 

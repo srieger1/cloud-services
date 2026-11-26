@@ -33,7 +33,7 @@ devenv shell          # Umgebung: marp-cli, chromium, node
 
 - **Frontmatter ist die Quelle der Wahrheit** für das Slidev-Stylesheet (Kopf-/Fußzeile, `font-size: 20px`, `padding: 56px 62px`, `line-height: 1.4`). Werte ändern → `slidev-convert` + `slidev-build` neu laufen lassen.
 - **Sie-Form** durchgängig.
-- **Marker:** `💡` immer mit Link (nackte URL zählt), **genau eine** 🧠-Frage pro Inhaltsfolie als letzte Zeile, max. 3 Links pro Folie (Ausnahme `## Hintergrund & Vertiefung`: bis 5).
+- **Marker:** `💡` immer mit Link (nackte URL zählt), **höchstens eine** 🧠-Frage pro Inhaltsfolie als letzte Zeile — und nur dort, wo sie sich im Unterricht wirklich diskutieren lässt (lieber weglassen als Folien mit Fragen zu pflastern; die Zeit reicht nicht für alle), max. 3 Links pro Folie (Ausnahme `## Hintergrund & Vertiefung`: bis 5).
 - **Slide-Typen:** `<!-- _class: title -->`, `<!-- _class: section-break -->`, `#` für Kapitel/Teil, `##` für Folientitel; dazu `## Live-Demo`, `## Abnahmekriterien`, `## Grundlagen-Kasten`, `## Deep Dive`, `## Story`, `## Lernzielkontrolle ✍️🧠`, `## Praktische Übungen 🛠️🧑‍🔬🔬`.
 - **Umsetzungs-Marker** auf Theorie-Folien: `> **→ umsetzen in:** Lab N — …`
 - **Dichte:** ≤ 6 Bullets, Tabellen ≤ 8 Zeilen, eine Aussage pro Folie. Bildgrößen in **px** (`![w:940px center](figures/…)`) — Prozentangaben ignoriert Marp.

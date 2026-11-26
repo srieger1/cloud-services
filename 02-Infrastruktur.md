@@ -230,8 +230,6 @@ für Backups, Logs, statische Inhalte
 - **RAID** schützt gegen Plattenausfall, **ist aber kein Backup** — dafür sorgt Kapitel 6
 - **Wichtig für Kubernetes (nächste Woche):** die **StorageClass** bestimmt, ob ein Volume beim Löschen **erhalten** (`retain`) oder **gelöscht** (`delete`) wird
 
-🧠 Was passiert mit einem Volume, wenn Sie ein Helm-Chart deinstallieren — und warum ist das wichtig?
-
 > **→ umsetzen in:** Lab 4 (PVC/StorageClass) und Lab 6 (Cleanup).
 
 ---

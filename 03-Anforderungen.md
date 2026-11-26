@@ -181,8 +181,6 @@ Die interne **Plattform als Produkt**: Self-Service und Golden Paths, damit Team
 - Gemeinsamer Nenner: **Automatisierung** und **Nachvollziehbarkeit**
 - Für Sie relevant: Git als Quelle der Wahrheit, Pipeline als Änderungswerkzeug, Betrieb als Teil der Entwicklung
 
-🧠 Welche dieser Ideen brauchen Sie für Ihr Projekt wirklich — und welche ist für ein Semesterprojekt zu viel?
-
 > **→ umsetzen in:** Lab 5 (CI/CD und Argo CD).
 
 ---
@@ -194,7 +192,7 @@ Die interne **Plattform als Produkt**: Self-Service und Golden Paths, damit Team
 - **Kostenkontrolle (FinOps):** Budget kennen und **Alarm** setzen; Ressourcen sofort beenden
 - **Achtung Reste:** Volumes, Floating IPs, Load Balancer und Snapshots überleben ihr Deployment — Konsole prüfen
 
-💡 [AWS Pricing Calculator](https://calculator.aws/) · [kubectl Cheat Sheet](https://kubernetes.io/docs/reference/kubectl/quick-reference/)
+💡 [AWS Pricing Calculator](https://calculator.aws/)
 
 🧠 Was kostet Ihr Dienst pro Woche, wenn Sie ihn laufen lassen — und wer merkt es, wenn das Budget reißt?
 
@@ -249,8 +247,6 @@ Die interne **Plattform als Produkt**: Self-Service und Golden Paths, damit Team
 
 💡 [Trivy](https://trivy.dev/) · [Kyverno](https://kyverno.io/) · [SLSA](https://slsa.dev/)
 
-🧠 Wer prüft eigentlich, dass die Regeln eingehalten werden — im Cluster und in Ihrem Repo?
-
 ---
 
 ## Sicherheit im Betrieb: worauf achten
@@ -265,8 +261,6 @@ Die interne **Plattform als Produkt**: Self-Service und Golden Paths, damit Team
 > Security wird hier **anwendungsbezogen** behandelt, nicht als eigenes Fach. **Merker: Verweis Prof. Zohner.**
 
 💡 [BSI IT-Grundschutz](https://www.bsi.bund.de/DE/Themen/Unternehmen-und-Organisationen/Standards-und-Zertifizierung/IT-Grundschutz/it-grundschutz_node.html) · [OWASP Cheat Sheet Series](https://cheatsheetseries.owasp.org/)
-
-🧠 Welche Ihrer offenen Ports würden Sie einem Angreifer zuerst erklären müssen?
 
 ---
 
