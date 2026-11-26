@@ -135,7 +135,7 @@ Die eigentliche Arbeit findet in Block B statt; die Aufgaben selbst stehen im RE
 - **Compose:** beschreibt mehrere Container, Netze und Volumes in einer `docker-compose.yml` – lokale Orchestrierung, aber kein Cluster.
 
 <!--
-Warum „lokal Orchestrierung, aber kein Cluster": compose startet Container auf einem Host, ohne Ausfallsicherheit, Rolling Updates oder Scheduling über mehrere Knoten. Genau hier setzt Lab 4 (Kubernetes) an — Diskussionsstoff für die 🧠-Frage in W7.
+Warum „lokal Orchestrierung, aber kein Cluster": compose startet Container auf einem Host, ohne Ausfallsicherheit, Rolling Updates oder Scheduling über mehrere Knoten. Genau hier setzt Lab 4 (Kubernetes) an — dort beim Einstieg als Diskussionspunkt aufgreifen, nicht hier.
 -->
 
 ---
